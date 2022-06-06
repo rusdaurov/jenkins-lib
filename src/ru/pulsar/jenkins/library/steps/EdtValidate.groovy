@@ -45,6 +45,10 @@ class EdtValidate implements Serializable {
         }
 
         def resultFile = "$env.WORKSPACE/$RESULT_FILE"
+        if (steps.fileExists(resultFile)) {
+            new File(resultFile).delete()
+        }
+
         def edtVersionForRing = EDT.ringModule(config)
 
         Logger.println("Выполнение валидации EDT")

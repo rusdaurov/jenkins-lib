@@ -79,7 +79,7 @@ void call() {
                                     stage('Создание ИБ') {
                                         steps {
                                             timeout(time: config.timeoutOptions.createInfoBase, unit: TimeUnit.MINUTES) {
-                                                createDir('build/out')
+                                                // createDir('build/out') // зачем если используем и создаем на шаге 'Инициализация ИБ'
 
                                                 script {
                                                     if (config.infoBaseFromFiles()) {

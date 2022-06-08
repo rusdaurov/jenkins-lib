@@ -79,8 +79,6 @@ void call() {
                                     stage('Создание ИБ') {
                                         steps {
                                             timeout(time: config.timeoutOptions.createInfoBase, unit: TimeUnit.MINUTES) {
-                                                // createDir('build/out') // зачем если используем и создаем на шаге 'Инициализация ИБ'
-
                                                 script {
                                                     if (config.infoBaseFromFiles()) {
                                                         // Создание базы загрузкой из файлов
@@ -113,6 +111,23 @@ void call() {
                                                 printLocation()
 
                                                 zipInfobase()
+                                            }
+                                        }
+                                    }
+
+                                    stage('Формирование файла поставки') {
+                                        agent {
+                                            label 'oscript'
+                                        }
+                                        when {
+                                            beforeAgent true
+                                            expression { config.stageFlags.createDistributive }
+                                        }
+                                        steps {
+                                            timeout(time: config.timeoutOptions.createDistributive, unit: TimeUnit.MINUTES) {
+                                                unzipInfobase()
+                                            
+                                                createDistributive config
                                             }
                                         }
                                     }

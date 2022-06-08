@@ -82,6 +82,10 @@
         "telegram" : {
           "type" : "boolean",
           "description" : "Выполнять рассылку результатов сборки в telegram"
+        },
+        "createDistributive" : {
+          "type" : "boolean",
+          "description" : "Выполнять формирование файла поставки"
         }
       }
     },
@@ -133,6 +137,10 @@
         "sonarqube" : {
           "type" : "integer",
           "description" : "Таймаут шага статического анализа SonarQube, в минутах.\n    По умолчанию содержит значение 90.\n    "
+        },
+        "createDistributive" : {
+          "type" : "integer",
+          "description" : "Таймаут шага формирования файла поставки, в минутах.\n    По умолчанию содержит значение 60.\n    "
         }
       }
     },

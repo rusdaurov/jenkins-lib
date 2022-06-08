@@ -60,4 +60,9 @@ class TimeoutOptions implements Serializable {
     По умолчанию содержит значение 90.
     ''')
     Integer sonarqube
+
+    @JsonPropertyDescription('''Таймаут шага формирования файла поставки, в минутах.
+    По умолчанию содержит значение 60.
+    ''')
+    Integer createDistributive
 }

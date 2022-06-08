@@ -30,6 +30,9 @@ class StageFlags implements Serializable {
     @JsonPropertyDescription("Выполнять рассылку результатов сборки в telegram")
     Boolean telegram
 
+    @JsonPropertyDescription("Выполнять формирование файла поставки")
+    Boolean createDistributive
+
     @Override
     @NonCPS
     String toString() {
@@ -42,10 +45,11 @@ class StageFlags implements Serializable {
             ", bdd=" + bdd +
             ", email=" + email +
             ", telegram=" + telegram +
+            ", createDistributive=" + createDistributive +
             '}';
     }
 
     boolean needInfoBase() {
-        return smoke || syntaxCheck || initSteps || bdd
+        return smoke || syntaxCheck || initSteps || bdd || createDistributive
     }
 }

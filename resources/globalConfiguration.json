@@ -19,7 +19,8 @@
     "edtValidate": false,
     "smoke": false,
     "email": false,
-    "telegram": false
+    "telegram": false,
+    "createDistributive": false
   },
   "timeout": {
     "smoke": 240,
@@ -32,7 +33,8 @@
     "resultTransformation": 10,
     "sonarqube": 90,
     "syntaxCheck": 240,
-    "zipInfoBase": 60
+    "zipInfoBase": 60,
+    "createDistributive": 60
   },
   "initInfobase": {
     "initMethod": "fromStorage",
